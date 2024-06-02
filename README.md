@@ -24,20 +24,21 @@ def stopWords(cleaned):
     tokenWords = []
     stop_words = set(stopwords.words("english"))
     for word in cleaned:
-        if word not in stop_words:
+        if word.lower() not in stop_words:
             tokenWords.append(word)
     return tokenWords
 
             
 
 cleaned_words = letters_and_digits(user_input)
-print(cleaned_words)
+print(f"Cleaned words: {cleaned_words}")
 
-x = stopWords(cleaned_words)
-print(x)
+filtered_words = stopWords(cleaned_words)
+print(f"Filtered words: {filtered_words}")
 
-temp = " ".join(x)
+final_text = " ".join(filtered_words)
 
-print(temp)
+print(f"Final text: {final_text}")
+
 
 
